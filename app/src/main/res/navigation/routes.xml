@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/routes"
+    app:startDestination="@id/tasks">
+
+    <fragment
+        android:id="@+id/notes"
+        android:name="com.example.planner_.screens.note.Note"
+        android:label="Notes"
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_notes_to_noteEditor"
+            app:destination="@id/noteEditor" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/lists"
+        android:name="com.example.planner_.screens.lists.Lists"
+        android:label="Lists"
+        tools:layout="@layout/fragment_lists" >
+        <action
+            android:id="@+id/action_lists_to_listEditor"
+            app:destination="@id/listEditor" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasks"
+        android:name="com.example.planner_.screens.tasks.Tasks"
+        android:label="Tasks"
+        tools:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/action_tasks_to_lists"
+            app:destination="@id/lists" />
+        <action
+            android:id="@+id/action_tasks_to_tips"
+            app:destination="@id/notes" />
+        <action
+            android:id="@+id/action_tasks_to_addTask"
+            app:destination="@id/addTask" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteEditor"
+        android:name="com.example.planner_.screens.note.NoteEditor"
+        android:label="New note"
+        tools:layout="@layout/fragment_note_editor" >
+        <action
+            android:id="@+id/action_noteEditor_to_notes"
+            app:destination="@id/notes" />
+    </fragment>
+    <fragment
+        android:id="@+id/listEditor"
+        android:name="com.example.planner_.screens.lists.ListEditor"
+        android:label="fragment_list_editor"
+        tools:layout="@layout/fragment_list_editor" >
+        <action
+            android:id="@+id/action_listEditor_to_lists"
+            app:destination="@id/lists" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTask"
+        android:name="com.example.planner_.screens.tasks.TaskEditor"
+        android:label="Add task"
+        tools:layout="@layout/fragment_add_task" />
+</navigation>
